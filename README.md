@@ -1,37 +1,18 @@
-# Inform
-class MurderStatsManager
-    def __init__(self,data):
-    self.data = {
-        "Europe":{
-            "Estonia":{
-                "Tallinn":[5]
+class MurderStatsManager:
+    def __init__(self):
+        self.data = {}
 
-        }
-                }
-        "Asia":{
-            "Japan":{
-                "Tokyo":[8]
-            }
-
-        }
-        }
-
-
-
-    def get_stats(self,murders,city):
-
-
-
-
-
-    
     def add_data(self, continent, country, city, count):
+        key = f"{continent}: {country} - {city}"
+        self.data[key] = count
 
+    def get_stats(self):
+        for location, count in self.data.items():
+            print(f"{location}: {count} murders")
 
-#короче я сделал нечего
-#все также нечего
+data = MurderStatsManager()
+data.add_data("Europe", "Estonia", "Tallinn", 5)
+data.add_data("Europe", "Finland", "Helsinki", 3)
+data.add_data("Asia", "Japan", "Tokyo", 8)
 
-    pass
-
-
-print(self.data["Tallinn"])
+data.get_stats()
